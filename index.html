@@ -1,10 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-45641231315用谷歌与工业
+
+<html lang="zh-CN">
+<title>MyHome</title>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1,maximum-scale=1"name=viewport>
+<meta content="个人维护的系统首页，具备个人的定制化。" name="description">
+<meta content="个人,首页，浏览器，" name="keywords">
+<link href="style.css"rel=stylesheet>
+<body onload="geteveryday();">
+<div id="Date-Time">
+    <span id="hms"></span><br/>
+    <span id='ymd'></span>
+</div>
+
+<div class="input-group">
+    <input name="text" type="text" id="text" value="" placeholder="学海无涯" autofocus="autofocus" />
+    <button class="btn-primary" id="click" onclick="baidu()">搜一下</button>
+</div>
+
+<table class="table">
+    <tbody>
+    <tr>
+        <td><span class="trhead">生活</span></td>
+        <td><a href="https://www.bilibili.com/" class="trbody" target="_blank">Bilibili</a></td>
+        <td><a href="https://www.douyu.com/" class="trbody" target="_blank">斗鱼</a></td>
+        <td><a href="https://www.zhihu.com/" class="trbody" target="_blank">知乎</a></td>
+        <td><a href="https://www.jianshu.com/" class="trbody" target="_blank">简书</a></td>
+        <td><a href="https://www.taobao.com/" class="trbody" target="_blank">淘宝</a></td>
+        <td><a href="https://www.jd.com/" class="trbody" target="_blank">京东</a></td>
+    </tr>
+    <tr>
+        <td><span class="trhead">工作</span></td>
+        <td><a href="https://www.iconfont.cn/" class="trbody" target="_blank">图标库</a></td>
+        <td><a href="https://www.pmdaniu.com/explore" class="trbody" target="_blank">产品大牛</a></td>
+        <td><a href="https://www.axure.com.cn/" class="trbody" target="_blank">Axure中文网</a></td>
+    </tr>
+    <tr>
+        <td><span class="trhead">云盘</span></td>
+        <td><a href="https://pan.baidu.com" class="trbody" target="_blank">百度</a></td>
+        <td><a href="https://www.aliyundrive.com" class="trbody" target="_blank">阿里</a></td>
+        <td><a href="https://cloud.189.cn/web/login.html" class="trbody" target="_blank">天翼云</a></td>
+        <td><a href="https://www.lanzou.com/" class="trbody" target="_blank">蓝奏云</a></td>
+        <td><a href="https://www.ctfile.com/" class="trbody" target="_blank">诚通云</a></td>
+        <td><a href="https://cloud.huawei.com/" class="trbody" target="_blank">华为云</a></td>
+        <td><a href="https://i.mi.com/" class="trbody" target="_blank">小米云</a></td>
+    </tr>
+    <tr>
+        <td><span class="trhead">破解</span></td>
+        <td><a href="https://www.ghxi.com/" class="trbody" target="_blank">果核</a></td>
+        <td><a href="https://www.ypojie.com/" class="trbody" target="_blank">亿破姐</a></td>
+        <td><a href="https://www.macno1.com/" class="trbody" target="_blank">MACno1</a></td>
+        <td><a href="https://www.xitmi.com/" class="trbody" target="_blank">系统迷</a></td>
+        <td><a href="https://www.wrfou.com/" class="trbody" target="_blank">挖软否</a></td>
+        <td><a href="http://www.rjafx.com/" class="trbody" target="_blank">兔八哥</a></td>
+        <td><a href="https://foxirj.com/" class="trbody" target="_blank">佛系软件</a></td>
+    </tr>
+    </tbody>
+</table>
+<div id="everyday">愿幸福每一天</div>
+<div id="jinrishici-sentence">愿幸福每一天</div>
+<!-- <button  onclick="geteveryday()">每日一语</button> -->
 </body>
-</html>
+
+<!-- 免费的调用每日一语的js -->
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script type="text/javascript">
+    function startTime() {
+        var ymd = document.getElementById("ymd");
+        var hms = document.getElementById("hms");
+        var today = new Array('星期日','星期一','星期二','星期三','星期四','星期五','星期六');
+        var date = new Date();
+        var year = date.getFullYear(); //当前年份
+        var month = date.getMonth(); //当前月份
+        var data = date.getDate(); //天
+        var week = today[date.getDay()];//星期
+        var hours = date.getHours(); //小时
+        var minute = date.getMinutes(); //分
+        var second = date.getSeconds(); //秒
+        var data = year + "年" + checkTime((month + 1)) + "月" + checkTime(data)+"日"+"&emsp;"+week;
+        var time = checkTime(hours) + ":" + checkTime(minute) + ":" + checkTime(second);
+        ymd.innerHTML = data;
+        hms.innerHTML = time;
+        setTimeout('startTime()', 1000); //每一秒中重新加载startTime()方法
+    }
+    startTime();
+    //补位 当某个字段不是两位数时补0
+    function checkTime(str) {
+        var num;
+        str >= 10 ? num = str : num = "0" + str;
+        return num;
+    }
+
+    //调用百度查询
+    var input = document.getElementById("text");
+    function baidu(){
+        var url="http://www.baidu.com/s?wd="+input.value;
+        window.open(url);
+    }
+
+    //回车触发查询
+    input.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("click").onclick();
+        }
+    });
+
+    function geteveryday(){
+        var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+        httpRequest.open('GET', 'http://api.tianapi.com/txapi/everyday/index?key=9bd6b8084ba2184e354bebc6365d80dd', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+        httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+        /**
+         * 获取数据后的处理程序
+         */
+        httpRequest.onreadystatechange = function () {
+            var json = JSON.parse(httpRequest.responseText);//获取到json字符串，还需解析
+            console.log(json.code);
+            if(json.code=="200"){
+                document.getElementById("everyday").innerHTML=json.newslist[0].note;
+            }
+        };
+    }
+</script>

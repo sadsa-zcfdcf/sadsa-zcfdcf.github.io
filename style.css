@@ -1,0 +1,100 @@
+body{
+	background-image: url('sea0002.jpg');
+	background-repeat:no-repeat;
+	-webkit-transition:background-color .5s;
+	transition:background-color .5s;
+	-webkit-font-smoothing:antialiased;
+}
+
+/*搜索框样式*/
+.input-group{
+	justify-content: center;
+	display: flex;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+input{
+    width: 50%;
+    height: 41px;
+    border: snow;
+    padding-left: 15px;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+}
+
+input[type=text]:focus { 
+    outline: none;
+    /*outline-color: #DBDEE0;*/
+}
+
+.input-group .btn-primary{
+	background: #4E6EF2;
+	border: 0px;
+	color: #fff;
+	padding:0px 18px ;
+    border-radius: 0px 5px 5px 0px;
+}
+
+/*日期时间样式*/
+#Date-Time{
+	text-align: center;
+	color: #fff;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+#ymd{
+	font-size: 20px;
+	font-weight: 500;
+}
+#hms{
+	font-size: 72px;
+	font-weight: 700;
+}
+
+/*导航样式*/
+.table{
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	border: 0px;
+  	margin: 30px;
+}
+
+.table tbody tr{
+	border: 0px;
+	height: 40px;
+} 
+
+.table tbody tr td{
+	padding: 0 20px;
+}
+.trhead{
+	color: #000;
+	font-weight: 600;
+	
+}
+
+.trbody{
+	text-decoration: none;
+	color: #fff;
+}
+
+.trbody:hover{
+	color: #3399CC;
+	transition: all 0.5s linear;
+}
+
+
+/*每日一语*/
+#everyday{
+	margin: 50px;
+	text-align: center;
+	color: #fff;
+}
+
+#jinrishici-sentence{
+	margin: 50px;
+	text-align: center;
+	color: #fff;
+}

@@ -79,7 +79,9 @@
               <h4>
                 博客开业啦！确定不来康康嘛~
               </h4>
-              <a href='https://www.cnblogs.com/' target='_blank'>https://www.cnblogs.com/</a>
+             <h5>
+               <a href='https://www.cnblogs.com/yinianqiong/' target='_blank'>https://www.cnblogs.com/yinianqiong/</a>
+             </h5>
             </div>
             <div
               v-for="item in contacts"
@@ -169,7 +171,9 @@
       }
     </script>
     <!-- Vuejs -->
+
     <script language="javascript">
+
       var mainsec = new Vue({
         el: "#main",
         data: {
@@ -188,20 +192,12 @@
 
           backButton: false,
 
-          /*          Change things below this line               */
-          //Contact info
-          /**
-           * 有关下方icon的优化
-           * 因下方icon可以挂上用户自己的站点，所以做了如下修改
-           * jump为true，会直接跳转链接，链接为用户自定义的content字段
-           * jump为false，则是与原来一样。
-           */
           contacts: [
             {
               name: "Wechat",
               icon: "icon brands fa-weixin",
               desc: "微信",
-              content: "<img src='images/demoQR.png' class='qr' />",
+              content: "<img src='images/demowx.jpg' class='qr' />",
               show: false,
               jump: false,
             },
@@ -210,7 +206,7 @@
               icon: "icon brands fa-qq",
               desc: "QQ",
               content:
-                "<img src='images/demoQR.png' class='qr' /><h2>QQ:2897100227</h2>",
+                "<img src='images/demoQQ.jpg' class='qr' /><h2>QQ:2897100227</h2>",
               show: false,
               jump: false,
             },
@@ -218,21 +214,30 @@
               name: "Github",
               icon: "icon brands fa-github",
               desc: "Github",
-              content: "https://github.com/Jiaocz/Personal-page",
+              content: "https://github.com/sadsa-zcfdcf/sadsa-zcfdcf.github.io",
               show: false,
               jump: true,
+            },
+            {
+              name: "Email",
+              icon: "icon far fa-envelope",
+              desc: "Email",
+              content:
+                      "<h4> Email:2897100227@qq.com </h4>",
+              show: false,
+              jump: false,
             },
           ],
 
           //Pages content
           page: [
             {
-              title: "Page 1",
+              title: "我是一个大学生",
               texts: [
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore facere accusamus quae nesciunt at fuga dicta vitae quidem reiciendis. Quos blanditiis corporis vel iusto reprehenderit ratione distinctio fugiat quae sed.",
+                "就读于石家庄铁道大学，是2020级计算机科学与技术学院本科生，软件工程专业。喜欢做一些小东西，比如设计制作网页等；我也有过写博客的经历，下面是跳转链接哦",
               ],
-              html: "",
-              imgs: ["images/bg.jpg"],
+              html:`<b>↓新博客现在启程啦~↓</b><br /><a href="https://www.cnblogs.com/yinianqiong/" style="text-decoration: underline;">cnblogs.com/yinianqiong/</a><br/><b>↓来两张生活照~↓</b>`,
+              imgs: ["images/by.jpg","images/hz.jpg"],
             },
             {
               title: "Page 2",
